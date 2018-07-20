@@ -33,9 +33,3 @@ feature 'When a user visits a vending machine show page' do
     expect(page).to have_content("Average Price: $#{dons.average_snack_price}")
   end
 end
-
-=begin
-As a user
-When I visit a specific vending machine page
-I also see an average price for all of the snacks in that machine
-=end
