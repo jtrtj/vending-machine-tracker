@@ -3,8 +3,7 @@ class CreateSnacks < ActiveRecord::Migration[5.1]
     create_table :snacks do |t|
       t.string :title
       t.decimal :price
-
-      t.timestamps
+      t.references :machine, foreign_key: true
     end
   end
 end
