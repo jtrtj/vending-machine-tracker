@@ -13,15 +13,13 @@ feature 'When a user visits a vending machine show page' do
   scenario 'they see the name of all the name and price of snacks in the machine' do
     owner = Owner.create(name: "Sam's Snacks")
     dons  = owner.machines.create(location: "Don's Mixed Drinks")
-    snack_1 = dons.snacks.create(title: 'gfdas', price: 12)
-    snack_2 = dons.snacks.create(title: 'hgfd', price: 65)
+    snack_1 = dons.snacks.create(title: 'gfdas', price: 12.50)
+    snack_2 = dons.snacks.create(title: 'hgfd', price: 65.50)
 
     visit machine_path(dons)
 
-    expect(page).to have_content(snack_1.title)
-    expect(page).to have_content(snack_1.price)
-    expect(page).to have_content(snack_2.title)
-    expect(page).to have_content(snack_2.price)
+    expect(page).to have_content("#{snack_1.title}: $#{snack_1.price}")
+    expect(page).to have_content("#{snack_2.title}: $#{snack_2.price}")
   end
 
   scenario 'they see the average price for the machine' do
