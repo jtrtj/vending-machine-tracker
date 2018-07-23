@@ -11,5 +11,15 @@ describe Machine do
 
       expect(dons.average_snack_price).to eq(2.50)
     end
+
+    it '#snack_type_count' do
+      owner = Owner.create(name: "Sam's Snacks")
+      dons  = owner.machines.create(location: "Don's Mixed Drinks")
+      dons.snacks.create(title: 'gfdas', price: 3.50)
+      dons.snacks.create(title: 'hgfd', price: 2.50)
+      dons.snacks.create(title: 'gfds', price: 1.50)
+
+      expect(dons.snack_type_count).to eq(3)
+    end
   end
 end
