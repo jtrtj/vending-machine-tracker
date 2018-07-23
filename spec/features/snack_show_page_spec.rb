@@ -30,13 +30,13 @@ describe 'a user' do
       MachineSnack.create(snack: snack_2, machine: turing)
       
       visit snack_path(snack_1)
-
+     
       expect(page).to have_content(snack_1.title)
       expect(page).to have_content("Price: $#{snack_1.price}")
-      expect(page).to have_content("* #{dons.location}")
-      expect(page).to have_content("* #{turing.location}")
-      expect(page).to have_content("* #{turing.average_snack_price}")
-      expect(page).to have_content("* #{dons.average_snack_price}")
+      expect(page).to have_content("#{dons.location}")
+      expect(page).to have_content("#{turing.location}")
+      expect(page).to have_content("#{turing.average_snack_price}")
+      expect(page).to have_content("#{dons.average_snack_price}")
       
     end
   end
